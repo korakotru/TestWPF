@@ -26,8 +26,8 @@
                 </LinearGradientBrush>
             </Canvas.Background>
         </Canvas>
-        <Button Name="btnGenerate" Content="Generate" HorizontalAlignment="Left" Margin="288,12,0,0" VerticalAlignment="Top" Width="112"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="163,11,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Button Name="btnGenerate" Content="Generate" HorizontalAlignment="Left" Margin="288,12,0,0" VerticalAlignment="Top" Width="112" Click="btnGenerate_Click"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="163,11,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Label Content="Generate Object Numbers" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
 
     </Grid>

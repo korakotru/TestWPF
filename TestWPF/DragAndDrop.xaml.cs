@@ -23,5 +23,13 @@ namespace TestWPF
         {
             InitializeComponent();
         }
+
+        private void btnGenerate_Click(object sender, RoutedEventArgs e)
+        {
+            // TODO: Generate the button element.
+
+        }
+
+        
     }
 }
