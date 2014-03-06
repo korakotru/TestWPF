@@ -10,7 +10,7 @@
         <SolidColorBrush x:Key="brushWatermarkBorder" Color="Indigo" />
 
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-        <local:TextInputToVisibilityConverter x:Key="TextInputToVisibilityConverter" />
+        <!--<local:TextInputToVisibilityConverter x:Key="TextInputToVisibilityConverter" />-->
 
         <Style x:Key="EntryFieldStyle" TargetType="Grid" >
             <Setter Property="HorizontalAlignment" Value="Stretch" />
@@ -45,14 +45,6 @@
             </Canvas.Background>
         </Canvas>
         <Button Name="btnGenerate" Content="Generate" HorizontalAlignment="Left" Margin="288,12,0,0" VerticalAlignment="Top" Width="112" Click="btnGenerate_Click"/>
-        <TextBlock Margin="5,2" Text="This dissappears as the control gets focus..." Foreground="{StaticResource brushWatermarkForeground}" >
-            <TextBlock.Visibility>
-                <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
-                    <Binding ElementName="txtUserEntry2" Path="Text.IsEmpty" />
-                    <Binding ElementName="txtUserEntry2" Path="IsFocused" />
-                </MultiBinding>
-            </TextBlock.Visibility>
-        </TextBlock>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="163,11,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Label Content="Generate Object Numbers" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
 

@@ -1,0 +1,25 @@
+﻿<Window x:Class="TestWPF.DragDrop"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Drag and Drop Window" Height="600" Width="800">
+    <Grid >
+        <Canvas Margin="20" Background="#FFEBEBEB" Name="DesignCanvas">
+            <TextBox Text="It's a Textbox" Canvas.Left="50" Canvas.Top="30" Width="177" />
+            <Label Content="It's label control" Canvas.Left="50" Width="110"   />
+            <Button Content="It's Button control" Canvas.Left="50" Canvas.Top="60" />
+            <RadioButton Canvas.Left="50" Canvas.Top="90" Height="30" Name="radioButton1">
+                <RadioButton.Content >
+                    <StackPanel Orientation="Horizontal" >
+                        <Label Content="It's a Custom RadioButton control with CheckBox control" />
+                        <CheckBox Margin="7" />
+                    </StackPanel>
+                </RadioButton.Content>
+            </RadioButton>
+            <CheckBox Canvas.Left="50" Canvas.Top="120"
+                      Content="It's a CheckBox control" Height="16" Name="checkBox1"/>
+            <ListBox Canvas.Left="189" Canvas.Top="146" Height="100" Name="listBox1" Width="151" >
+                <ListBoxItem Content="It's a ListBox control."></ListBoxItem>
+            </ListBox>
+        </Canvas>
+    </Grid>
+</Window>

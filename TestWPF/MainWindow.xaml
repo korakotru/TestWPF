@@ -23,7 +23,7 @@
                 </LinearGradientBrush>
             </Label.BorderBrush>
         </Label>
-        <DataGrid Name="gridHistory" HorizontalAlignment="Left" Margin="25,118,0,0" VerticalAlignment="Top" Height="181" Width="465" SelectionChanged="DataGrid_SelectionChanged_1" AutoGenerateColumns="False">
+        <DataGrid Name="gridHistory" HorizontalAlignment="Left" Margin="25,118,0,0" VerticalAlignment="Top" Height="181" Width="465"  AutoGenerateColumns="False">
             <DataGrid.AlternatingRowBackground>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
@@ -33,10 +33,7 @@
                     <GradientStop Color="#FF9F9F9F"/>
                     <GradientStop Color="#FFD5D5D5"/>
                 </LinearGradientBrush>
-            </DataGrid.AlternatingRowBackground>
-            <Popup Name="pop1">
-                <Border Width="300" Height="200" Background="LemonChiffon" BorderThickness="2" BorderBrush="Black" />
-            </Popup>
+            </DataGrid.AlternatingRowBackground> 
         </DataGrid>
         <Button x:Name="btnCal" Content="Cal." HorizontalAlignment="Left" Margin="337,34,0,0" VerticalAlignment="Top" Width="57" Cursor="Hand" Click="btnCal_Click"/>
 

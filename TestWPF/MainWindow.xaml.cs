@@ -102,12 +102,7 @@ namespace TestWPF
             dtHistory.Columns.Add("N2", typeof(decimal));
             dtHistory.Columns.Add("Result", typeof(decimal));
         }
-
-        private void DataGrid_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-
-        } 
-
+         
         private void btnCal_Click(object sender, RoutedEventArgs e)
         {
             Plus();
