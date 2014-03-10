@@ -27,7 +27,7 @@ namespace TestWPF
         private void btnGenerate_Click(object sender, RoutedEventArgs e)
         {
             // TODO: Generate the element to canvas variant by input number of controls.
-
+            List<Object> objs = new List<object>();
         } 
     }
 }
