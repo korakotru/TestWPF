@@ -63,6 +63,9 @@
     <Compile Include="TestContainer.xaml.cs">
       <DependentUpon>TestContainer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TestForm.xaml.cs">
+      <DependentUpon>TestForm.xaml</DependentUpon>
+    </Compile>
     <Page Include="DragAndDrop.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -92,6 +95,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="TestContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TestForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
