@@ -29,9 +29,13 @@ namespace TestWPF
             InitializeComponent();
 
             // Binding Event
-            item.PreviewMouseLeftButtonDown += item_PreviewMouseLeftButtonDown;
-            item.PreviewMouseMove += item_PreviewMouseMove;
-            item.PreviewMouseLeftButtonUp += item_PreviewMouseLeftButtonUp;
+            //foreach (Control control in dragAbleCanvas.Children)
+            //{
+                item.PreviewMouseLeftButtonDown += item_PreviewMouseLeftButtonDown;
+                item.PreviewMouseMove += item_PreviewMouseMove;
+                item.PreviewMouseLeftButtonUp += item_PreviewMouseLeftButtonUp;
+            //}
+            
         }
         #region ============= Drag and Drop event handler =============
         void item_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -42,8 +46,8 @@ namespace TestWPF
         {
             if (e.LeftButton == MouseButtonState.Pressed && sender == MovingObject)
             {
-                (sender as Control).SetValue(Canvas.LeftProperty, e.GetPosition((sender as Control).Parent as Control).X - FirstXPos - 20);
-                (sender as Control).SetValue(Canvas.TopProperty, e.GetPosition((sender as Control).Parent as Control).Y - FirstYPos - 20);
+                (sender as Control).SetValue(LeftProperty, e.GetPosition((sender as Control).Parent as Control).X - FirstXPos - 20);
+                (sender as Control).SetValue(TopProperty, e.GetPosition((sender as Control).Parent as Control).Y - FirstYPos - 20);
             }
         }
         void item_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -52,6 +56,7 @@ namespace TestWPF
             FirstYPos = e.GetPosition(sender as Control).Y;
             FirstArrowXPos = e.GetPosition((sender as Control).Parent as Control).X - FirstXPos - 20;
             FirstArrowYPos = e.GetPosition((sender as Control).Parent as Control).Y - FirstYPos - 20;
+            MovingObject = sender;
         }
         #endregion
     }
