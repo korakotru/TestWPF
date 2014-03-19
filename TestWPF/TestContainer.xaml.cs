@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Drawing;
+using System.Windows.Media.Effects;
 
 namespace TestWPF
 {
@@ -30,6 +31,8 @@ namespace TestWPF
         object MovingObject;
         Line Path1, Path2, Path3, Path4;
         Rectangle FirstPosition, CurrentPosition;
+        int previousRow;
+        int previousCol;
 
         double ctrlHeight, ctrlWidth; // use for set the moving control(temp object) size
 
@@ -80,11 +83,12 @@ namespace TestWPF
                 item.Width = ctrlWidth;
                 item.Height = ctrlHeight;
                 item.Margin = new Thickness(10);
-                item.Content = "[" + currentRow.ToString() + "]" + "[" + currentColumn.ToString() + "]";
+                item.Content = currentRow.ToString() + "," + currentColumn.ToString();
                 canvasContainer = new Canvas(); // ให้ control อยู่ใน canvas เพื่อให้สามารถ handler event mouse over ได้ เพื่อให้ สามารถ drop control ลงใน canvas ได้อย่างถูกต้อง
-                canvasContainer.Children.Add(item);
+                canvasContainer.ToolTip = currentRow.ToString() + "c" + currentColumn.ToString(); // Set the name as index
                 canvasContainer.PreviewDragEnter += canvasContainer_PreviewDragEnter; // Handler DragOver event.
-
+                canvasContainer.PreviewDragOver += canvasContainer_PreviewDragOver;
+                canvasContainer.Children.Add(item);
                 Grid.SetRow(canvasContainer, currentRow);
                 Grid.SetColumn(canvasContainer, currentColumn);
                 gridPanelA.Children.Add(canvasContainer);
@@ -102,10 +106,15 @@ namespace TestWPF
             }
         }
 
-        void canvasContainer_PreviewDragEnter(object sender, DragEventArgs e)
+        void canvasContainer_PreviewDragOver(object sender, DragEventArgs e)
         {
             MessageBox.Show("DragOver Here");
-        } 
+        }
+
+        void canvasContainer_PreviewDragEnter(object sender, DragEventArgs e)
+        {
+            MessageBox.Show("DragEnter Here");
+        }
 
         public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
         {
@@ -184,21 +193,38 @@ namespace TestWPF
         {
             MovingObject = null;
 
-            //Button moving = sender as Button;
-            //moving.Content = tempStr; 
+            // Get canvas is indexed  
+            UIElementCollection controlCollection = gridPanelA.Children;
+            foreach (Canvas item in controlCollection)
+            {
+                if (String.Compare(item.ToolTip.ToString(), previousRow + "c" + previousCol) == 0)
+                {
+                    Control movingControl = sender as Control;
+                    canvasPanel.Children.Remove(movingControl);
+                    item.Children.Add(movingControl);
+                    movingControl.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
+                    movingControl.VerticalAlignment = System.Windows.VerticalAlignment.Stretch;
+                    
+                    //lblAlert.Content = ( movingControl.Parent as Control).Parent.ToString();
+
+                    Point p = item.TransformToAncestor(RootWindow).Transform(new Point(0, 0));
+                    //MessageBox.Show( p.X.ToString() +","+p.Y.ToString() );
+                }
+            } 
         }
         void item_PreviewMouseMove(object sender, MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed && sender == MovingObject)
             {
-                (sender as Control).SetValue(LeftProperty, e.GetPosition((sender as Control).Parent as Control).X - FirstXPos -10 ); // -10 เพื่อชดเชยค่า margin ของ control ที่ set ไว้
-                (sender as Control).SetValue(TopProperty, e.GetPosition((sender as Control).Parent as Control).Y - FirstYPos -10);
+                (sender as Control).SetValue(LeftProperty, e.GetPosition((sender as Control).Parent as Control).X - FirstXPos - 10); // -10 เพื่อชดเชยค่า margin ของ control ที่ set ไว้
+                (sender as Control).SetValue(TopProperty, e.GetPosition((sender as Control).Parent as Control).Y - FirstYPos - 10);
 
                 lblMovingTxt.Content = (sender as Control).ToString();
                 lblObjectPositionX.Content = e.GetPosition((sender as Control).Parent as Control).X;
                 lblObjectPositionY.Content = e.GetPosition((sender as Control).Parent as Control).Y;
             }
         }
+
         void item_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             FirstXPos = e.GetPosition(sender as Control).X;
@@ -207,18 +233,22 @@ namespace TestWPF
             FirstArrowYPos = e.GetPosition((sender as Control).Parent as Control).Y;// -FirstYPos - 20;
             MovingObject = sender;
 
-            //*** copy moving object for dragging
-            Control movingObjectCopy = new Control();
-            movingObjectCopy = MovingObject as Control;
-            movingObjectCopy.Width = ctrlWidth;
-            movingObjectCopy.Height = ctrlHeight;
+            //try
+            //{
+            string[] index = ((MovingObject as Control).Parent as Canvas).ToolTip.ToString().Split('c');
+            lblPreviousRow.Content = previousRow = int.Parse(index[0]);
+            lblPreviousCol.Content = previousCol = int.Parse(index[1]);
+            //}
+            //catch (Exception)
+            //{ 
+            //}
 
             //*** remove object from grid (disconnect the control from container)
             ((MovingObject as Control).Parent as Canvas).Children.Remove(MovingObject as Control);
-            
+
             //*** add control to canvas container
-            canvasPanel.Children.Add(movingObjectCopy);
-            movingObjectCopy.PointFromScreen(Mouse.GetPosition(Application.Current.MainWindow));
+            canvasPanel.Children.Add(MovingObject as Control);
+            (MovingObject as Control).PointFromScreen(Mouse.GetPosition(Application.Current.MainWindow));
         }
         #endregion
 
