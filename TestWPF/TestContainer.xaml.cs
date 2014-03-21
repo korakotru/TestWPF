@@ -32,7 +32,7 @@ namespace TestWPF
         Line Path1, Path2, Path3, Path4;
         Rectangle FirstPosition, CurrentPosition;
         int previousRow;
-        int previousCol;
+        int previousCol; 
 
         double ctrlHeight, ctrlWidth; // use for set the moving control(temp object) size
 
@@ -197,6 +197,9 @@ namespace TestWPF
             UIElementCollection controlCollection = gridPanelA.Children;
             foreach (Canvas item in controlCollection)
             {
+                //
+                // Do return dragging item to previous position container.
+                //
                 if (String.Compare(item.ToolTip.ToString(), previousRow + "c" + previousCol) == 0)
                 {
                     Control movingControl = sender as Control;
@@ -204,12 +207,19 @@ namespace TestWPF
                     item.Children.Add(movingControl);
                     movingControl.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
                     movingControl.VerticalAlignment = System.Windows.VerticalAlignment.Stretch;
-                    
-                    //lblAlert.Content = ( movingControl.Parent as Control).Parent.ToString();
-
-                    Point p = item.TransformToAncestor(RootWindow).Transform(new Point(0, 0));
-                    //MessageBox.Show( p.X.ToString() +","+p.Y.ToString() );
+                    Canvas.SetLeft(movingControl,0);
+                    Canvas.SetTop(movingControl, 0);  
                 }
+
+                //
+                // Do Swap dragging item with dragover's item.
+                //
+
+
+                //
+                // Do Move the dragging item to new location (new canvas container)
+                //
+
             } 
         }
         void item_PreviewMouseMove(object sender, MouseEventArgs e)
@@ -237,7 +247,7 @@ namespace TestWPF
             //{
             string[] index = ((MovingObject as Control).Parent as Canvas).ToolTip.ToString().Split('c');
             lblPreviousRow.Content = previousRow = int.Parse(index[0]);
-            lblPreviousCol.Content = previousCol = int.Parse(index[1]);
+            lblPreviousCol.Content = previousCol = int.Parse(index[1]); 
             //}
             //catch (Exception)
             //{ 

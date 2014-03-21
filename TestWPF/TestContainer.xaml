@@ -54,7 +54,8 @@
             <Label Content="Previous Column :" Canvas.Left="480" Canvas.Top="134" RenderTransformOrigin="0.763,0.769"/>
             <Label x:Name="lblPreviousRow" Content="lblPreviousRow" Canvas.Left="590" Canvas.Top="108" RenderTransformOrigin="0.053,0.654"/>
             <Label x:Name="lblPreviousCol" Content="lblPreviousCol" Canvas.Left="590" Canvas.Top="134"/>
-            <Label x:Name="lblAlert" Content="Label" Canvas.Left="480" Canvas.Top="151" Foreground="#FFDC2020"/>
+            <Label   Content="Hover on Control ? " Canvas.Left="480" Canvas.Top="151" Foreground="#FFDC2020"/>
+            <Label x:Name="lblHoverOn" Content="*" Canvas.Left="599" Canvas.Top="151" Foreground="#FFDC2020"/>
         </Canvas>
     </Grid>
 </Window>
