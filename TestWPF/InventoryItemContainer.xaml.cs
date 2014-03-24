@@ -10,25 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace TestWPF
 {
     /// <summary>
-    /// Interaction logic for DragAndDrop.xaml
+    /// Interaction logic for InventoryItemContainer.xaml
     /// </summary>
-    public partial class DragAndDrop : Window
+    public partial class InventoryItemContainer : UserControl
     {
-        public DragAndDrop()
+        public InventoryItemContainer()
         {
             InitializeComponent();
         }
-
-        private void btnGenerate_Click(object sender, RoutedEventArgs e)
-        {
-            // TODO: Generate the element to canvas variant by input number of controls.
-            List<Object> objs = new List<object>();
-        } 
     }
 }
-

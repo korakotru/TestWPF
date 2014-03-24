@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace TestWPF
 {
     /// <summary>
-    /// Interaction logic for DragDropDataGridCell.xaml
+    /// Interaction logic for InventoryMain.xaml
     /// </summary>
-    public partial class DragDropDataGridCell : Window
+    public partial class InventoryMain : Window
     {
-        public DragDropDataGridCell()
+        public InventoryMain()
         {
             InitializeComponent();
         }

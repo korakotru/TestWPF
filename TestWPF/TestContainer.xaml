@@ -2,7 +2,6 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="TestContainer" Height="819" Width="924" Loaded="RootWindow_Loaded">
-
     <Grid Name="mainGrid">
         <Canvas Name="canvasPanel">
             <Label Content="Object Number : " HorizontalAlignment="Left" Margin="25,65,0,0" VerticalAlignment="Top"/>

@@ -49,11 +49,20 @@ namespace TestWPF
 
         private void RootWindow_Loaded(object sender, RoutedEventArgs e)
         {
-
+            gridPanelB.AllowDrop = true;
+            gridPanelB.DragEnter += gridPanelB_DragEnter;
         }
+
+        void gridPanelB_DragEnter(object sender, DragEventArgs e)
+        {
+            (e.Source as Canvas).Background = Brushes.Yellow;
+        } 
 
         private void btnSet_Click(object sender, RoutedEventArgs e)
         {
+            // Clean panel
+            gridPanelA.Children.Clear();
+
             columnA = int.Parse(txtColumnSizeA.Text.Trim());
             numberOfObjects = int.Parse(txtNumberOfObjects.Text.Trim());
 
@@ -67,6 +76,7 @@ namespace TestWPF
             // Set the layout 
             BuildGrid(numberOfObjects, columnA, gridPanelA);
 
+            // Add the control into the GridPanel container
             int currentRow = 0, currentColumn = 0;
             int totalObjects = itemList.Count;
             Canvas canvasContainer;
@@ -84,11 +94,13 @@ namespace TestWPF
                 item.Height = ctrlHeight;
                 item.Margin = new Thickness(10);
                 item.Content = currentRow.ToString() + "," + currentColumn.ToString();
+                DragDrop.DoDragDrop(item,item.Content,DragDropEffects.Move); 
                 canvasContainer = new Canvas(); // ให้ control อยู่ใน canvas เพื่อให้สามารถ handler event mouse over ได้ เพื่อให้ สามารถ drop control ลงใน canvas ได้อย่างถูกต้อง
                 canvasContainer.ToolTip = currentRow.ToString() + "c" + currentColumn.ToString(); // Set the name as index
-                canvasContainer.PreviewDragEnter += canvasContainer_PreviewDragEnter; // Handler DragOver event.
-                canvasContainer.PreviewDragOver += canvasContainer_PreviewDragOver;
+                // Binding event to canvas container
+                canvasContainer.AllowDrop = true; 
                 canvasContainer.Children.Add(item);
+
                 Grid.SetRow(canvasContainer, currentRow);
                 Grid.SetColumn(canvasContainer, currentColumn);
                 gridPanelA.Children.Add(canvasContainer);
@@ -104,18 +116,7 @@ namespace TestWPF
             {
                 BindDragDropEvent(ctrl);
             }
-        }
-
-        void canvasContainer_PreviewDragOver(object sender, DragEventArgs e)
-        {
-            MessageBox.Show("DragOver Here");
-        }
-
-        void canvasContainer_PreviewDragEnter(object sender, DragEventArgs e)
-        {
-            MessageBox.Show("DragEnter Here");
-        }
-
+        } 
         public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
         {
             if (depObj != null)
@@ -184,27 +185,26 @@ namespace TestWPF
         {
             ctrl.PreviewMouseLeftButtonDown += item_PreviewMouseLeftButtonDown;
             ctrl.PreviewMouseMove += item_PreviewMouseMove;
-            ctrl.PreviewMouseLeftButtonUp += item_PreviewMouseLeftButtonUp;
+            ctrl.PreviewMouseLeftButtonUp += item_PreviewMouseLeftButtonUp; 
         }
-
-
+          
         #region ============= Drag and Drop event handler =============
         void item_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            MovingObject = null;
-
+           
             // Get canvas is indexed  
             UIElementCollection controlCollection = gridPanelA.Children;
-            foreach (Canvas item in controlCollection)
+            foreach (Canvas canvasItem in controlCollection)
             {
                 //
                 // Do return dragging item to previous position container.
                 //
-                if (String.Compare(item.ToolTip.ToString(), previousRow + "c" + previousCol) == 0)
+                if (  String.Compare(canvasItem.ToolTip.ToString(), previousRow + "c" + previousCol) == 0)
                 {
                     Control movingControl = sender as Control;
-                    canvasPanel.Children.Remove(movingControl);
-                    item.Children.Add(movingControl);
+                    //canvasPanel.Children.Remove(movingControl);
+                    (movingControl.Parent as Canvas).Children.Remove(movingControl);
+                    canvasItem.Children.Add(movingControl);
                     movingControl.HorizontalAlignment = System.Windows.HorizontalAlignment.Stretch;
                     movingControl.VerticalAlignment = System.Windows.VerticalAlignment.Stretch;
                     Canvas.SetLeft(movingControl,0);
@@ -220,8 +220,10 @@ namespace TestWPF
                 // Do Move the dragging item to new location (new canvas container)
                 //
 
+                MovingObject = null; 
             } 
         }
+
         void item_PreviewMouseMove(object sender, MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed && sender == MovingObject)
@@ -262,7 +264,6 @@ namespace TestWPF
         }
         #endregion
 
-
         private void BuildGrid(int numberOfObjects, int column, Grid grid)
         {
             grid.RowDefinitions.Clear();
@@ -286,11 +287,8 @@ namespace TestWPF
                 grid.RowDefinitions.Add(rd);
             }
 
-
             ctrlWidth = width - 20;
             ctrlHeight = grid.RowDefinitions[0].Height.Value - 20; // 10 is margin
-        }
-
-
+        } 
     }
 }

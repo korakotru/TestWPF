@@ -61,8 +61,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DragDropDataGridCell.xaml.cs">
-      <DependentUpon>DragDropDataGridCell.xaml</DependentUpon>
+    <Compile Include="Circle.xaml.cs">
+      <DependentUpon>Circle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DragDropOverview.xaml.cs">
+      <DependentUpon>DragDropOverview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HelperCls.cs" />
+    <Compile Include="InventoryItemContainer.xaml.cs">
+      <DependentUpon>InventoryItemContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryMain.xaml.cs">
+      <DependentUpon>InventoryMain.xaml</DependentUpon>
     </Compile>
     <Compile Include="TestContainer.xaml.cs">
       <DependentUpon>TestContainer.xaml</DependentUpon>
@@ -70,15 +80,23 @@
     <Compile Include="TestForm.xaml.cs">
       <DependentUpon>TestForm.xaml</DependentUpon>
     </Compile>
-    <Page Include="DragAndDrop.xaml">
+    <Page Include="Circle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DragDrop.xaml">
+    <Page Include="DragDropTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DragDropDataGridCell.xaml">
+    <Page Include="DragDropOverview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InventoryItemContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InventoryMain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -92,11 +110,8 @@
     </Compile>
     <Compile Include="convertTextInputToVisibility.cs" />
     <Compile Include="DataGridExtensions.cs" />
-    <Compile Include="DragAndDrop.xaml.cs">
-      <DependentUpon>DragAndDrop.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DragDrop.xaml.cs">
-      <DependentUpon>DragDrop.xaml</DependentUpon>
+    <Compile Include="DragDropTest.xaml.cs">
+      <DependentUpon>DragDropTest.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

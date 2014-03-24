@@ -17,14 +17,14 @@ namespace TestWPF
     /// <summary>
     /// Interaction logic for DragDrop.xaml
     /// </summary>
-    public partial class DragDrop : Window
+    public partial class DragDropTest : Window
     {
         double FirstXPos, FirstYPos, FirstArrowXPos, FirstArrowYPos;
         object MovingObject; // temp object during drag
         Line Path1, Path2, Path3, Path4; // use for drawing the line from start position to destination position.
         Rectangle FirstPosition, CurrentPosition;
 
-        public DragDrop()
+        public DragDropTest()
         {
             InitializeComponent();
 
@@ -147,5 +147,6 @@ namespace TestWPF
             FirstPosition.Visibility = System.Windows.Visibility.Hidden;
             CurrentPosition.Visibility = System.Windows.Visibility.Hidden;
         }
+         
     }
 }
