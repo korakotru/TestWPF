@@ -64,16 +64,21 @@
     <Compile Include="Circle.xaml.cs">
       <DependentUpon>Circle.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Data\ItemModel.cs" />
     <Compile Include="DragDropOverview.xaml.cs">
       <DependentUpon>DragDropOverview.xaml</DependentUpon>
     </Compile>
     <Compile Include="HelperCls.cs" />
+    <Compile Include="InventoryItem.xaml.cs">
+      <DependentUpon>InventoryItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="InventoryItemContainer.xaml.cs">
       <DependentUpon>InventoryItemContainer.xaml</DependentUpon>
     </Compile>
     <Compile Include="InventoryMain.xaml.cs">
       <DependentUpon>InventoryMain.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LOB\ItemBiz.cs" />
     <Compile Include="TestContainer.xaml.cs">
       <DependentUpon>TestContainer.xaml</DependentUpon>
     </Compile>
@@ -89,6 +94,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DragDropOverview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InventoryItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -152,6 +161,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\tool.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\photo no available.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

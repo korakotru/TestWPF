@@ -4,8 +4,20 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-        
+             d:DesignHeight="150" d:DesignWidth="150">
+
+    <Grid  Width="150" Height="150">
+
+        <StackPanel Name="mainStackPanel" Orientation="Vertical"  >
+            <Border   CornerRadius="10"   BorderBrush="Green" BorderThickness="5">
+                <Canvas Name="canvasImage" Height="120" Width="140" >
+                    <Image Width="140" Height="120" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Stretch="Fill" Source="Images/photo no available.jpg"   />
+                </Canvas>
+            </Border>
+            <Canvas Name="canvasDetail" Height="20" >
+            </Canvas>
+        </StackPanel>
+
     </Grid>
+
 </UserControl>
