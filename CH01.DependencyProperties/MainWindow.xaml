@@ -1,0 +1,11 @@
+﻿<Window xmlns:local="clr-namespace:CH01.DependencyProperties"  
+        x:Class="CH01.DependencyProperties.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <StackPanel>
+        <local:SimpleControl x:Name="_simple"></local:SimpleControl>
+        <TextBlock Text="{Binding YearPublished, ElementName=_simple}" FontSize="30"></TextBlock>
+        <Button Content="change Value" FontSize="20" Click="OnChangeValue"></Button>
+    </StackPanel>
+</Window>
