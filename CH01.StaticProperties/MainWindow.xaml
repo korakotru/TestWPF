@@ -1,0 +1,19 @@
+﻿<Window x:Class="CH01.StaticProperties.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <StackPanel>
+        <!--To access a static property, we must use the {x:Static}-->
+        <Ellipse Stroke="Black" Height="50" Fill="{x:Static SystemColors.DesktopBrush}" ></Ellipse>
+        <Rectangle Stroke="Black" Height="50" >
+            <Rectangle.Fill>
+                <LinearGradientBrush  EndPoint="1,0" >
+                    <GradientStop Offset="0"
+                                  Color="{x:Static SystemColors.ActiveCaptionColor}"></GradientStop>
+                    <GradientStop Offset="1"
+                                   Color="{x:Static SystemColors.GradientActiveCaptionColor}"></GradientStop>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+    </StackPanel>
+</Window>

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CH01.CustomAttached
+namespace CH01.CustomMarkupExtensionTest
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,12 +23,6 @@ namespace CH01.CustomAttached
         public MainWindow()
         {
             InitializeComponent();
-          
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            
         }
     }
 }

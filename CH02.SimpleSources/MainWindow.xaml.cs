@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CH01.CustomAttached
+namespace CH02.SimpleSources
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,12 +23,20 @@ namespace CH01.CustomAttached
         public MainWindow()
         {
             InitializeComponent();
-          
+
+            this.Resources.Add("brush2", new SolidColorBrush(
+ Color.FromRgb(200, 10, 150)));
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+            // Modify the brush resource
+            var brush = (LinearGradientBrush)this.Resources["brush1"];
+            brush.GradientStops.Add(new GradientStop(Colors.Blue, .5));
+
+            rect2.Fill = (SolidColorBrush)this.Resources["brush2"];
         }
+
+
     }
 }
