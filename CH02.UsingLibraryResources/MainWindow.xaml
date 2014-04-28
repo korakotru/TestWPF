@@ -1,0 +1,19 @@
+﻿<Window x:Class="CH02.UsingLibraryResources.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button HorizontalAlignment="Center" Margin="4" Padding="6">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/CH02.ClassLibraryResources;component/Images/apple.png" />
+                <TextBlock VerticalAlignment="Center" FontSize="14"
+Text="Click me!" Margin="10,0,0,0" />
+            </StackPanel>
+        </Button>
+    </Grid>
+    
+</Window>

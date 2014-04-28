@@ -1,7 +1,7 @@
-﻿<Window x:Class="CH02.SimpleSources.MainWindow"
+﻿<Window x:Class="CH02.DynamicVsStatic.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
+             Title="MainWindow" Height="350" Width="525">
     <Window.Resources>
         <LinearGradientBrush x:Key="brush1">
             <GradientStop Offset="0" Color="Yellow" />
@@ -12,17 +12,17 @@
             <GradientStop Offset="1" Color="Orange" />
         </LinearGradientBrush>
         <DataTemplate x:Key="temp1">
-            <Rectangle Fill="{StaticResource brush3}"
+            <Rectangle Fill="{DynamicResource brush3}"
 StrokeThickness="4" Stroke="DarkBlue" />
         </DataTemplate>
     </Window.Resources>
     <StackPanel>
-        <Rectangle Height="50" Stroke="Black" Fill="{StaticResource brush1}" >
+        <Rectangle Height="50" Stroke="Black" Fill="{DynamicResource brush1}" >
         </Rectangle>
         <Rectangle Name="rect2" Height="50" Stroke="Black" >
         </Rectangle>
-        <Ellipse StrokeThickness="20" Height="100"  Stroke="{StaticResource brush3}" > 
+        <Ellipse StrokeThickness="20" Height="100"  Stroke="{DynamicResource brush3}" >
         </Ellipse>
-        <Button Content="Modity brush" Height="39" Click="Button_Click"/> 
+        <Button Content="Modity brush" Height="39" Click="OnReplaceBrush" />
     </StackPanel>
 </Window>

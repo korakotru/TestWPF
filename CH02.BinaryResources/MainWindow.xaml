@@ -1,0 +1,14 @@
+﻿<Window x:Class="CH02.BinaryResources.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Button Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="4" Background="White">
+        <StackPanel Orientation="Horizontal">
+            <Image Source="pack://application:,,,/Images/apple.png" Height="97" Width="82" ></Image>
+            <TextBlock VerticalAlignment="Center" Margin="10,0,0,0" FontSize="16" Text="Click me, Please!  " ></TextBlock>
+        </StackPanel>
+    </Button>
+    <Window.Background>
+        <ImageBrush ImageSource="Images/jellyfish.jpg"></ImageBrush>
+    </Window.Background>
+</Window>

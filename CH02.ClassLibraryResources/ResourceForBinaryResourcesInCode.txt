@@ -1,0 +1,1 @@
+﻿using for test to be resource for CH02.UsingLibraryResources project.
