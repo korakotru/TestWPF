@@ -15,5 +15,4 @@ Text="Click me!" Margin="10,0,0,0" />
             </StackPanel>
         </Button>
     </Grid>
-    
 </Window>
