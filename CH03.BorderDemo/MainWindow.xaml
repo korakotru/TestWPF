@@ -1,0 +1,12 @@
+﻿<Window x:Class="CH03.BorderDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <StackPanel Margin="4">
+            <Border BorderThickness="3" BorderBrush="Blue" CornerRadius="6">
+                <TextBlock  Text="Hello from Center" FontSize="25" HorizontalAlignment="Center"></TextBlock>
+            </Border>
+        </StackPanel>
+    </Grid>
+</Window>
