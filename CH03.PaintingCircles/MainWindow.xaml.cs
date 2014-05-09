@@ -24,5 +24,40 @@ namespace CH03.PaintingCircles
         {
             InitializeComponent();
         }
+
+        private void OnClickCanvas(object sender, MouseButtonEventArgs e)
+        {
+            switch (e.ChangedButton)
+            {
+                case MouseButton.Left:
+                    // add a random ellipse
+                    var circle = new Ellipse {  
+                        Stroke = Brushes.Black,
+                        StrokeThickness = 3 ,
+                        Fill = Brushes.Red , 
+                        Width = 30 , 
+                        Height = 30 };
+                    var pos = e.GetPosition(_canvas);
+                    Canvas.SetLeft(circle,pos.X - circle.Width/2);
+                    Canvas.SetTop(circle,pos.Y - circle.Height / 2);
+                    _canvas.Children.Add(circle);
+                    break;
+                case MouseButton.Middle:
+                    break;
+                case MouseButton.Right:
+                    var ellipse = e.Source as Ellipse;
+                    if (ellipse != null )
+                    {
+                        _canvas.Children.Remove(ellipse);
+                    }
+                    break;
+                case MouseButton.XButton1:
+                    break;
+                case MouseButton.XButton2:
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

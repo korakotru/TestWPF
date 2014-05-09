@@ -51,6 +51,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH03.CanvasDemo", "CH03.Can
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH03.PaintingCircles", "CH03.PaintingCircles\CH03.PaintingCircles.csproj", "{09DA90EB-A2B7-462C-A29F-199031BB4E01}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CH03.SimpleTabs", "CH03.SimpleTabs\CH03.SimpleTabs.csproj", "{92920388-DF8C-4BBD-B478-A28EBBA473D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -157,6 +159,10 @@ Global
 		{09DA90EB-A2B7-462C-A29F-199031BB4E01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09DA90EB-A2B7-462C-A29F-199031BB4E01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09DA90EB-A2B7-462C-A29F-199031BB4E01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92920388-DF8C-4BBD-B478-A28EBBA473D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92920388-DF8C-4BBD-B478-A28EBBA473D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92920388-DF8C-4BBD-B478-A28EBBA473D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92920388-DF8C-4BBD-B478-A28EBBA473D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
