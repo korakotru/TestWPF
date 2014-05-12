@@ -1,0 +1,34 @@
+﻿<Window x:Class="CH03.ComplexTabs.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <DataTemplate x:Key="tabHeaderTemplate">
+            <StackPanel Orientation="Horizontal" Margin="4">
+                <Ellipse Stroke="Black" StrokeThickness="4" Fill="Blue" Width="16" Height="16"></Ellipse>
+                <TextBlock Margin="4,0,0,0" VerticalAlignment="Center" FontSize="15" Text="{Binding Header}"></TextBlock>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="tabContentTemplate">
+            <Grid>
+                <TextBlock FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Text}"></TextBlock>
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
+    
+    <TabControl x:Name="_tabs">
+        <TabControl.ItemContainerStyle>
+            <Style TargetType="TabItem">
+                <Setter Property="HeaderTemplate"
+                        Value="{StaticResource tabHeaderTemplate}"></Setter>
+                <Setter Property="ContentTemplate"
+                        Value="{StaticResource tabContentTemplate}"></Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsSelected" Value="True">
+                        <Setter Property="Background" Value="Yellow"></Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </TabControl.ItemContainerStyle>
+    </TabControl>
+</Window>

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CH03.SimpleTabs
+namespace CH03.ComplexTabs
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,7 +23,14 @@ namespace CH03.SimpleTabs
         public MainWindow()
         {
             InitializeComponent();
-             
+
+            _tabs.ItemsSource = new List<DataItem>
+            {
+                new DataItem {Header = "Header 1", Text = "Data 1"},
+                new DataItem {Header = "Header 2", Text = "Data 2"},
+                new DataItem {Header = "Header 3", Text = "Data 3"},
+                new DataItem {Header = "Header 4", Text = "Data 4"},
+            };
         }
     }
 }

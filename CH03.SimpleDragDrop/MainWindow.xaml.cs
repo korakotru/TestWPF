@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CH03.SimpleTabs
+namespace CH03.SimpleDragDrop
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,7 +23,13 @@ namespace CH03.SimpleTabs
         public MainWindow()
         {
             InitializeComponent();
-             
+        }
+
+        void initObjects()
+        {
+            var rnd = new Random();
+            const int width = 45, height = 45;
+            
         }
     }
 }
